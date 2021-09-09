@@ -5,6 +5,8 @@
 
 class FavouriteCollection: public Collection {
 public:
+    void insertNote(std::shared_ptr<Note>& n) override;
+
     bool removeNote(const std::string& title) override;
 };
 

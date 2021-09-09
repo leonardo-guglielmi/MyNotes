@@ -31,12 +31,12 @@ public:
 
     ////// other methods /////
     // Insert note in the collection
-    void insertNote(std::shared_ptr<Note>& n);
+    virtual void insertNote(std::shared_ptr<Note>& n);
 
     // remove the note from collection with its reference
     bool removeNote(std::shared_ptr<Note>& n);
 
-    // remove note from collection with it's title
+    // remove note from collection with its title
     virtual bool removeNote(const std::string& title);
 
     // return a pointer to the note

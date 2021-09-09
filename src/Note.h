@@ -14,7 +14,7 @@ private:
     std::string title;
     std::string text;
     bool locked = false;
-
+    bool  favourite = false;
 
 public:
     ///// constructors & destructor /////
@@ -37,6 +37,10 @@ public:
     bool isLocked() const { return locked; }
 
     void setLocked(bool locked) { Note::locked = locked; }
+
+    bool isFavourite() const { return favourite; }
+
+    void setFavourite(bool favourite) { Note::favourite = favourite; }
 };
 
 
