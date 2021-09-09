@@ -1,0 +1,2 @@
+C:\MinGW64\mingw32\bin\ar.exe qc libcore.a CMakeFiles/core.dir/src/Note.cpp.obj CMakeFiles/core.dir/src/Collection.cpp.obj CMakeFiles/core.dir/src/CollectionManager.cpp.obj CMakeFiles/core.dir/src/Interface.cpp.obj CMakeFiles/core.dir/src/FavouriteCollection.cpp.obj
+C:\MinGW64\mingw32\bin\ranlib.exe libcore.a
