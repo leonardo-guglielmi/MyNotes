@@ -1,5 +1,12 @@
 #include "CollectionManager.h"
 
+/// observer pattern method
+void CollectionManager::update() {
+    for(const auto& it : collectionList) {
+        numberOfNote[it.first] = it.second->countNote();
+    }
+}
+
 /// methods to create objects
 void CollectionManager::createNewCollection(const std::string& name) {
     if(collectionList.find(name) == collectionList.end()) {

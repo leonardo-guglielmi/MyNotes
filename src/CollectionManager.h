@@ -27,9 +27,7 @@ public:
     ~CollectionManager() override = default;
 
     ///// observer pattern methods /////
-    void update(const std::string &collection, int increment) override {
-        numberOfNote[collection] += increment;
-    }
+    void update() override;
 
     ///// other methods /////
 

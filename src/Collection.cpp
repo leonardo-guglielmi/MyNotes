@@ -103,6 +103,10 @@ std::set<std::string> Collection::getNoteList() const {
     return set;
 }
 
+int Collection::countNote() const {
+    return static_cast<int>(noteList.size());
+}
+
 int Collection::countLocked() const {
     int numberOfLocked = 0;
     for(auto it : noteList) {

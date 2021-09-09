@@ -60,6 +60,9 @@ public:
     // return a set with the titles of all notes
     std::set<std::string> getNoteList() const;
 
+    // return the number of notes
+    int countNote() const;
+
     // return the number of locked notes
     int countLocked() const;
 };

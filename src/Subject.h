@@ -16,9 +16,9 @@ public:
     void removeObserver(Observer& o) { observerList.remove(&o); }
 
     // receives the title and the increment of the collection from the update was called.
-    void notify(const std::string& title, int increment) {
+    void notify() {
         for(auto it : observerList)
-           it->update(title, increment);
+           it->update();
     }
 };
 
