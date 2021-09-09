@@ -126,3 +126,29 @@ TEST(CollectionTest, TestGetNoteList) {
     }
     ASSERT_TRUE(allContained);
 }
+
+TEST(CollectionTest, TestCountNote) {
+    // setup test
+    Collection c ("test");
+    std::string firstTitle = "title1";
+    std::string secondTitle = "title2";
+    std::shared_ptr<Note> ptr1 = std::make_shared<Note>(firstTitle);
+    c.insertNote(ptr1);
+    std::shared_ptr<Note> ptr2 = std::make_shared<Note>(secondTitle);
+    c.insertNote(ptr2);
+    ASSERT_EQ(c.countNote(), 2);
+}
+
+TEST(CollectionTest, TestCountLocked) {
+    // setup test
+    Collection c ("test");
+    std::string firstTitle = "title1";
+    std::string secondTitle = "title2";
+    std::shared_ptr<Note> ptr1 = std::make_shared<Note>(firstTitle);
+    c.insertNote(ptr1);
+    c.lockNote(firstTitle);
+    std::shared_ptr<Note> ptr2 = std::make_shared<Note>(secondTitle);
+    c.insertNote(ptr2);
+    c.lockNote(secondTitle);
+    ASSERT_EQ(c.countLocked(), 2);
+}

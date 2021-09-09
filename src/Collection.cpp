@@ -5,7 +5,7 @@ void Collection::insertNote(std::shared_ptr<Note>& n) {
     // checks if the collection doesn't already contain that note, in that case its add the note and notify the observers
     if(noteList.find(title) == noteList.end()) {
         noteList[title] = n;
-        Subject::notify(this->name, 1);
+        Subject::notify();
     }
 }
 
@@ -17,7 +17,7 @@ bool Collection::removeNote(std::shared_ptr<Note>& n) {
        // If it's not locked, remove it from the list and notify the observers.
         if(!noteList[title]->isLocked()) {
            noteList.erase(title);
-           Subject::notify(this->name, -1);
+           Subject::notify();
            return true;
         }
         else
@@ -34,7 +34,7 @@ bool Collection::removeNote(const std::string& title) {
         // If it's not locked, remove it from the list and notify the observers
         if(!noteList[title]->isLocked()) {
             noteList.erase(title);
-            Subject::notify(this->name, -1);
+            Subject::notify();
             return true;
         }
         else
