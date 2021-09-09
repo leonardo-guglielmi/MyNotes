@@ -102,3 +102,12 @@ std::set<std::string> Collection::getNoteList() const {
     }
     return set;
 }
+
+int Collection::countLocked() const {
+    int numberOfLocked = 0;
+    for(auto it : noteList) {
+        if(it.second->isLocked())
+            numberOfLocked++;
+    }
+    return numberOfLocked;
+}
