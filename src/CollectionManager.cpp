@@ -1,7 +1,7 @@
 #include "CollectionManager.h"
 
 /// methods to create objects
-void CollectionManager::createNewCollection(std::string& name) {
+void CollectionManager::createNewCollection(const std::string& name) {
     if(collectionList.find(name) == collectionList.end()) {
         // If collection manager doesn't contain a collection with the same name, create new smart pointer to it, set the
         // number of notes associated to it at zero and add at that subject's observer list itself
@@ -11,7 +11,7 @@ void CollectionManager::createNewCollection(std::string& name) {
     }
 }
 
-void CollectionManager::createNewNote(std::string& collection, std::string& title) {
+void CollectionManager::createNewNote(const std::string& collection, const std::string& title) {
     if(collectionList.find(collection) != collectionList.end() && !collectionList[collection]->containsNote(title)) {
         auto ptr = std::make_shared<Note>(title);
         collectionList[collection]->insertNote(ptr);
@@ -19,7 +19,7 @@ void CollectionManager::createNewNote(std::string& collection, std::string& titl
 }
 
 /// methods that manage the interaction between objects
-bool CollectionManager::moveNote(std::string &start, std::string &destination, std::string &noteTitle) {
+bool CollectionManager::moveNote(const std::string &start, const std::string &destination, const std::string &noteTitle) {
     if(collectionList.find(start) != collectionList.end() && collectionList[start]->containsNote(noteTitle)) {
         // Save the pointer to the note, insert it in the destination collection and remove it from the start collection
         auto ptr = collectionList[start]->getNote(noteTitle);
@@ -31,7 +31,7 @@ bool CollectionManager::moveNote(std::string &start, std::string &destination, s
         return false;
 }
 
-bool CollectionManager::copyNote(std::string &start, std::string &destination, std::string &noteTitle) {
+bool CollectionManager::copyNote(const std::string &start, const std::string &destination, const std::string &noteTitle) {
     if(collectionList.find(start) != collectionList.end() && collectionList[start]->containsNote(noteTitle)) {
         // Save the pointer to the note and add it in the destination collection
         auto ptr = collectionList[start]->getNote(noteTitle);
@@ -43,7 +43,7 @@ bool CollectionManager::copyNote(std::string &start, std::string &destination, s
 }
 
 /// methods that modify objects
-bool CollectionManager::renameCollection(std::string &collection, std::string &newName) {
+bool CollectionManager::renameCollection(const std::string &collection, const std::string &newName) {
     if(collectionList.find(collection) != collectionList.end()) {
         // Update the name of collection, create a new entry with the new name as key and copy the content of the old
         // entry and after this remove the old entry.
@@ -56,7 +56,7 @@ bool CollectionManager::renameCollection(std::string &collection, std::string &n
         return false;
 }
 
-bool CollectionManager::renameNote(std::string &collection, std::string &noteTitle, std::string &newTitle) {
+bool CollectionManager::renameNote(const std::string &collection, const std::string &noteTitle, const std::string &newTitle) {
     if(collectionList.find(collection) != collectionList.end() && collectionList[collection]->containsNote(noteTitle)){
        collectionList[collection]->renameNote(noteTitle, newTitle);
        return true;
@@ -66,7 +66,7 @@ bool CollectionManager::renameNote(std::string &collection, std::string &noteTit
 
 }
 
-bool CollectionManager::modifyText(std::string &collectionName, std::string &noteTitle, std::string &newText) {
+bool CollectionManager::modifyText(const std::string &collectionName, const std::string &noteTitle, const std::string &newText) {
     if(collectionList.find(collectionName) != collectionList.end() && collectionList[collectionName]->containsNote(noteTitle)){
         collectionList[collectionName]->modifyText(noteTitle, newText);
         return true;
@@ -75,7 +75,7 @@ bool CollectionManager::modifyText(std::string &collectionName, std::string &not
         return false;
 }
 
-void CollectionManager::switchLock(std::string &collection, std::string &note) {
+void CollectionManager::switchLock(const std::string &collection, const std::string &note) {
     collectionList[collection]->lockNote(note);
 }
 
@@ -84,7 +84,7 @@ void CollectionManager::addToFavourites(std::shared_ptr<Note> note) {
 }
 
 /// methods to remove objects
-void CollectionManager::deleteCollection(std::string &name) {
+void CollectionManager::deleteCollection(const std::string &name) {
     if(collectionList.find(name) != collectionList.end() && !collectionList[name]->allLocked()) {
         collectionList[name]->removeObserver(*this);
         collectionList.erase(name);
@@ -93,7 +93,7 @@ void CollectionManager::deleteCollection(std::string &name) {
         throw std::logic_error("one or more notes are locked");
 }
 
-void CollectionManager::deleteNote(std::string &collectionName, std::string &noteTile) {
+void CollectionManager::deleteNote(const std::string &collectionName, const std::string &noteTile) {
     if(collectionList.find(collectionName) != collectionList.end() && collectionList[collectionName]->containsNote(noteTile))
         try {
             collectionList[collectionName]->removeNote(noteTile);
@@ -101,24 +101,24 @@ void CollectionManager::deleteNote(std::string &collectionName, std::string &not
         catch(std::logic_error& e) { throw e; }
 }
 
-void CollectionManager::removeFromFavourites(std::string &title) {
+void CollectionManager::removeFromFavourites(const std::string &title) {
     favourites.removeNote(title);
 }
 
 /// methods to check object's properties
-bool CollectionManager::containsNote(std::string &collection, std::string &note) {
+bool CollectionManager::containsNote(const std::string &collection, const std::string &note) {
     return (collectionList.find(collection) != collectionList.end() && collectionList[collection]->containsNote(note));
 }
 
-bool CollectionManager::containsCollection(std::string &collection) {
+bool CollectionManager::containsCollection(const std::string &collection) {
     return (collectionList.find(collection) != collectionList.end());
 }
 
-std::shared_ptr<Note> CollectionManager::getNote(std::string &collection, std::string &note) {
+std::shared_ptr<Note> CollectionManager::getNote(const std::string &collection, const std::string &note) {
     return collectionList[collection]->getNote(note);
 }
 
-std::set<std::string> CollectionManager::getNoteList(std::string& collection) const {
+std::set<std::string> CollectionManager::getNoteList(const std::string& collection) const {
     std::set<std::string> set;
     auto ptr = collectionList.find(collection)->second;
     return ptr->getNoteList();
@@ -135,6 +135,6 @@ std::set<std::string> CollectionManager::getFavourites() const {
     return favourites.getNoteList();
 }
 
-int CollectionManager::getNumberOfNotes(std::string &collection) {
+int CollectionManager::getNumberOfNotes(const std::string &collection) {
     return numberOfNote[collection];
 }

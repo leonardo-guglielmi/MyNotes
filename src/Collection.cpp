@@ -2,7 +2,7 @@
 
 void Collection::insertNote(std::shared_ptr<Note>& n) {
     const std::string& title = n->getTitle();
-    // checks if the collection doesn't already contains that note, in that case its add the note and notify the observers
+    // checks if the collection doesn't already contain that note, in that case its add the note and notify the observers
     if(noteList.find(title) == noteList.end()) {
         noteList[title] = n;
         Subject::notify(this->name, 1);
@@ -27,7 +27,7 @@ bool Collection::removeNote(std::shared_ptr<Note>& n) {
         return false;
 }
 
-bool Collection::removeNote(std::string& title) {
+bool Collection::removeNote(const std::string& title) {
     // Check if the note is contained in the collection, if it isn't return false
     if(noteList.find(title) != noteList.end()) {
         // Check if the note is locked, in that case throw an exception
@@ -44,15 +44,15 @@ bool Collection::removeNote(std::string& title) {
         return false;
 }
 
-std::shared_ptr<Note> Collection::getNote(std::string& title) {
+std::shared_ptr<Note> Collection::getNote(const std::string& title) {
     return noteList[title];
 }
 
-bool Collection::containsNote(std::string &title) const {
+bool Collection::containsNote(const std::string &title) const {
     return (noteList.find(title) != noteList.end());
 }
 
-bool Collection::renameNote(std::string &noteTitle, std::string &newTitle) {
+bool Collection::renameNote(const std::string &noteTitle, const std::string &newTitle) {
     if(noteList.find(noteTitle) != noteList.end()) {
         // Create new tuple in list with new title as key and a copy of the note with the old title, update the new
         // entry's title and remove the tuple that use the old title as key
@@ -65,7 +65,7 @@ bool Collection::renameNote(std::string &noteTitle, std::string &newTitle) {
         return false;
 }
 
-bool Collection::modifyText(std::string &title, std::string &newText) {
+bool Collection::modifyText(const std::string &title, const std::string &newText) {
     if(noteList.find(title) != noteList.end()) {
         noteList[title]->setText(newText);
         return true;
@@ -73,7 +73,7 @@ bool Collection::modifyText(std::string &title, std::string &newText) {
         return false;
 }
 
-bool Collection::lockNote(std::string& title) {
+bool Collection::lockNote(const std::string& title) {
     if(noteList.find(title) != noteList.end()){
         // Switch the lock state of the note
         bool lock = !noteList[title]->isLocked();

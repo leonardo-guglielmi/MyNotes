@@ -34,44 +34,44 @@ public:
     ///// other methods /////
 
     /// methods to create objects
-    void createNewCollection(std::string& name);
+    void createNewCollection(const std::string& name);
 
-    void createNewNote(std::string& collection, std::string& title);
+    void createNewNote(const std::string& collection, const std::string& title);
 
     /// methods to manage the interaction between collections
     // Move the note from one collection to another
-    bool moveNote(std::string& start, std::string& destination, std::string& noteTitle);
+    bool moveNote(const std::string& start, const std::string& destination, const std::string& noteTitle);
 
     // copy the selected note from start collection into destination collection
-    bool copyNote(std::string& start, std::string& destination, std::string& noteTitle);
+    bool copyNote(const std::string& start, const std::string& destination, const std::string& noteTitle);
 
     /// methods to modify objects
-    bool renameCollection(std::string& collection, std::string& newName);
+    bool renameCollection(const std::string& collection, const std::string& newName);
 
-    bool renameNote(std::string& collection, std::string& noteTitle, std::string& newTitle);
+    bool renameNote(const std::string& collection, const std::string& noteTitle, const std::string& newTitle);
 
-    bool modifyText(std::string& collectionName, std::string& noteTitle, std::string& newText);
+    bool modifyText(const std::string& collectionName, const std::string& noteTitle, const std::string& newText);
 
-    void switchLock(std::string& collection, std::string& note);
+    void switchLock(const std::string& collection, const std::string& note);
 
     void addToFavourites(std::shared_ptr<Note> note);
 
     /// methods to remove objects
-    void deleteCollection(std::string& name);
+    void deleteCollection(const std::string& name);
 
-    void deleteNote(std::string& collectionName, std::string& noteTile);
+    void deleteNote(const std::string& collectionName, const std::string& noteTile);
 
-    void removeFromFavourites(std::string& title);
+    void removeFromFavourites(const std::string& title);
 
     /// methods to check object's properties
-    bool containsNote(std::string& collection, std::string& note);
+    bool containsNote(const std::string& collection, const std::string& note);
 
-    bool containsCollection(std::string& collection);
+    bool containsCollection(const std::string& collection);
 
-    std::shared_ptr<Note> getNote(std::string& collection, std::string& note);
+    std::shared_ptr<Note> getNote(const std::string& collection, const std::string& note);
 
     // return a set that contain the titles of all notes in specified collectionS
-    std::set<std::string> getNoteList(std::string& collection) const ;
+    std::set<std::string> getNoteList(const std::string& collection) const ;
 
     // return a set that contain the names of all collection
     std::set<std::string> getCollectionList();
@@ -79,7 +79,7 @@ public:
     std::set<std::string> getFavourites() const;
 
     // Return the number associated to collection in map "numberOfNotes"
-    int getNumberOfNotes(std::string& collection);
+    int getNumberOfNotes(const std::string& collection);
 };
 
 #endif //MYNOTES_COLLECTIONMANAGER_H

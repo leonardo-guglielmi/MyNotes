@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.cpp
-Collection.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.h
-
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.h
 map
 -
@@ -26,26 +22,6 @@ C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Note.h
 Subject.h
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Subject.h
 
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.cpp
-CollectionManager.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.h
-
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.h
-map
--
-string
--
-set
--
-memory
--
-stdexcept
--
-Collection.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.h
-Observer.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Observer.h
-
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/FavouriteCollection.cpp
 FavouriteCollection.h
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/FavouriteCollection.h
@@ -53,24 +29,6 @@ C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/FavouriteCol
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/FavouriteCollection.h
 Collection.h
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.h
-
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Interface.cpp
-Interface.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Interface.h
-
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Interface.h
-string
--
-iostream
--
-memory
--
-set
--
-stdexcept
--
-CollectionManager.h
-C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.h
 
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Note.h
 string

@@ -18,7 +18,7 @@ private:
 
 public:
     ///// constructors & destructor /////
-    explicit Note(std::string& title): title(title) { }
+    explicit Note(const std::string& title): title(title) { }
 
     Note(std::string& title, std::string& text): title(title), text(text) { }
 

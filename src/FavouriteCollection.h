@@ -5,7 +5,7 @@
 
 class FavouriteCollection: public Collection {
 public:
-    bool removeNote(std::string& title) override;
+    bool removeNote(const std::string& title) override;
 };
 
 

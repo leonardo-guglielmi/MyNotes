@@ -21,13 +21,13 @@ protected:
 
 public:
     ///// Constructors & destructor /////
-    explicit Collection(std::string name): name(name) { }
+    explicit Collection(const std::string& name): name(name) { }
 
     ~Collection() override = default;
 
     ///// Getter&Setter /////
     const std::string& getName() const { return name; }
-    void setName(std::string& name) { Collection::name = name; }
+    void setName(const std::string& name) { Collection::name = name; }
 
     ////// other methods /////
     // Insert note in the collection
@@ -37,22 +37,22 @@ public:
     bool removeNote(std::shared_ptr<Note>& n);
 
     // remove note from collection with it's title
-    virtual bool removeNote(std::string& title);
+    virtual bool removeNote(const std::string& title);
 
     // return a pointer to the note
-    std::shared_ptr<Note> getNote(std::string& title);
+    std::shared_ptr<Note> getNote(const std::string& title);
 
     // return true if the collection contain the note, false if it doesn't contain the note
-    bool containsNote(std::string& title) const;
+    bool containsNote(const std::string& title) const;
 
     // rename note
-    bool renameNote(std::string& noteTitle, std::string& newTitle);
+    bool renameNote(const std::string& noteTitle, const std::string& newTitle);
 
     // modify text of note
-    bool modifyText(std::string& title, std::string& newText);
+    bool modifyText(const std::string& title, const std::string& newText);
 
     // lock/unlock note
-    bool lockNote(std::string& title);
+    bool lockNote(const std::string& title);
 
     // check if all the notes in the collection are unlocked
     bool allLocked() const;
