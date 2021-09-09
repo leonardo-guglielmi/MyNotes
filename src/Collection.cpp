@@ -9,15 +9,6 @@ void Collection::insertNote(std::shared_ptr<Note>& n) {
     }
 }
 
-void Collection::insertEmptyNote(std::string title) {
-    // Checks if already exist a note in the collection with that title, in that case create a new smart_ptr to the new
-    // note and notify the observers
-    if (noteList.find(title) == noteList.end()) {
-        noteList[title] = std::make_shared<Note>(title);
-        Subject::notify(this->name, 1);
-    }
-}
-
 bool Collection::removeNote(std::shared_ptr<Note>& n) {
     std::string title = n->getTitle();
     // Check if the note is contained in the collection, if it isn't return false

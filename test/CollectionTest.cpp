@@ -13,7 +13,8 @@ TEST(CollectionTest, TestInsert) {
 TEST(CollectionTest, TestRemoveNote) {
     Collection c ("test");
     std::string noteTitle = "testNote";
-    c.insertEmptyNote(noteTitle);
+    std::shared_ptr<Note> ptr = std::make_shared<Note>(noteTitle);
+    c.insertNote(ptr);
     // testing on locked note
     c.lockNote(noteTitle); //set lock=true
     ASSERT_THROW(c.removeNote(noteTitle), std::logic_error);
@@ -29,7 +30,8 @@ TEST(CollectionTest, TestRemoveNote) {
 TEST(CollectionTest, TestContainsNote) {
     Collection c ("test");
     std::string noteTitle = "title";
-    c.insertEmptyNote(noteTitle);
+    std::shared_ptr<Note> ptr = std::make_shared<Note>(noteTitle);
+    c.insertNote(ptr);
 
     // testing that the function returns the correct result
     ASSERT_TRUE(c.containsNote(noteTitle));
@@ -42,7 +44,8 @@ TEST(CollectionTest, TestContainsNote) {
 TEST(CollectionTest, TestRenameNote) {
     Collection c ("test");
     std::string title = "title";
-    c.insertEmptyNote(title);
+    std::shared_ptr<Note> ptr = std::make_shared<Note>(title);
+    c.insertNote(ptr);
     std::string newTitle = "new title";
 
     // testing that the function ha renamed correctly the function
@@ -57,7 +60,8 @@ TEST(CollectionTest, TestModifyText) {
     Collection c ("test");
     std::string title = "title";
     std::string text = "text";
-    c.insertEmptyNote(title);
+    std::shared_ptr<Note> ptr = std::make_shared<Note>(title);
+    c.insertNote(ptr);
     EXPECT_TRUE(c.modifyText(title, text));
 
     // checking if the text in the modified note is correct
@@ -72,7 +76,8 @@ TEST(CollectionTest, TestModifyText) {
 TEST(CollectionTest, TestLockNote) {
     Collection c ("test");
     std::string title = "title";
-    c.insertEmptyNote(title);
+    std::shared_ptr<Note> ptr = std::make_shared<Note>(title);
+    c.insertNote(ptr);
     bool firstState = c.getNote(title)->isLocked();
     EXPECT_TRUE(c.lockNote(title));
 
@@ -89,8 +94,11 @@ TEST(CollectionTest, TestAllLocked) {
     Collection c ("test");
     std::string firstTitle = "title1";
     std::string secondTitle = "title2";
-    c.insertEmptyNote(firstTitle);
-    c.insertEmptyNote(secondTitle);
+    std::shared_ptr<Note> ptr1 = std::make_shared<Note>(firstTitle);
+    c.insertNote(ptr1);
+    std::shared_ptr<Note> ptr2 = std::make_shared<Note>(secondTitle);
+    c.insertNote(ptr2);
+
     c.lockNote(firstTitle);
     EXPECT_FALSE(c.allLocked());
     c.lockNote(secondTitle);
@@ -101,8 +109,11 @@ TEST(CollectionTest, TestGetNoteList) {
     Collection c ("test");
     std::string firstTitle = "title1";
     std::string secondTitle = "title2";
-    c.insertEmptyNote(firstTitle);
-    c.insertEmptyNote(secondTitle);
+    std::shared_ptr<Note> ptr1 = std::make_shared<Note>(firstTitle);
+    c.insertNote(ptr1);
+    std::shared_ptr<Note> ptr2 = std::make_shared<Note>(secondTitle);
+    c.insertNote(ptr2);
+
     auto set = c.getNoteList();
 
     // making a loop to check that the returned set contain all the notes' title

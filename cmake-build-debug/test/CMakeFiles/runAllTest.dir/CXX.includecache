@@ -348,6 +348,22 @@ C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Note.h
 Subject.h
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Subject.h
 
+C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.h
+map
+-
+string
+-
+set
+-
+memory
+-
+stdexcept
+-
+Collection.h
+C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Collection.h
+Observer.h
+C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Observer.h
+
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Note.h
 string
 -
@@ -363,6 +379,12 @@ list
 -
 Observer.h
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/Observer.h
+
+C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/test/CollectionManagerTest.cpp
+gtest/gtest.h
+-
+../src/CollectionManager.h
+C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/src/CollectionManager.h
 
 C:/Users/Leo/UniFi/anno 1/Laboratorio di programmazione/MyNotes/test/CollectionTest.cpp
 gtest/gtest.h

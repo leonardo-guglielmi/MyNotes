@@ -33,9 +33,6 @@ public:
     // Insert note in the collection
     void insertNote(std::shared_ptr<Note>& n);
 
-    // create an empty note and set the title
-    void insertEmptyNote(std::string title);
-
     // remove the note from collection with its reference
     bool removeNote(std::shared_ptr<Note>& n);
 

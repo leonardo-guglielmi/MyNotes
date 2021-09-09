@@ -13,7 +13,8 @@ void CollectionManager::createNewCollection(std::string& name) {
 
 void CollectionManager::createNewNote(std::string& collection, std::string& title) {
     if(collectionList.find(collection) != collectionList.end() && !collectionList[collection]->containsNote(title)) {
-        collectionList[collection]->insertEmptyNote(title);
+        auto ptr = std::make_shared<Note>(title);
+        collectionList[collection]->insertNote(ptr);
     }
 }
 
