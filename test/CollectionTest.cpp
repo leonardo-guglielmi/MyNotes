@@ -137,6 +137,11 @@ TEST(CollectionTest, TestCountNote) {
     std::shared_ptr<Note> ptr2 = std::make_shared<Note>(secondTitle);
     c.insertNote(ptr2);
     ASSERT_EQ(c.countNote(), 2);
+
+    std::string thirdTitle = "title3";
+    std::shared_ptr<Note> ptr3 = std::make_shared<Note>(thirdTitle);
+    c.insertNote(ptr3);
+    ASSERT_EQ(c.countNote(), 3);
 }
 
 TEST(CollectionTest, TestCountLocked) {
