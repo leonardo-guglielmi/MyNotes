@@ -11,12 +11,12 @@ protected:
 public:
     virtual ~Subject() = default;
 
-    void addObserver(Observer& o) { observerList.push_back(&o); }
+    virtual void addObserver(Observer& o) { observerList.push_back(&o); }
 
-    void removeObserver(Observer& o) { observerList.remove(&o); }
+    virtual void removeObserver(Observer& o) { observerList.remove(&o); }
 
     // receives the title and the increment of the collection from the update was called.
-    void notify() {
+    virtual void notify() {
         for(auto it : observerList)
            it->update();
     }
