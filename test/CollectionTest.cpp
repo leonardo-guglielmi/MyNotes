@@ -156,4 +156,10 @@ TEST(CollectionTest, TestCountLocked) {
     c.insertNote(ptr2);
     c.lockNote(secondTitle);
     ASSERT_EQ(c.countLocked(), 2);
+
+    std::string thirdTitle = "title3";
+    std::shared_ptr<Note> ptr3 = std::make_shared<Note>(thirdTitle);
+    c.insertNote(ptr3);
+    c.lockNote(thirdTitle);
+    ASSERT_EQ(c.countLocked(), 3);
 }
