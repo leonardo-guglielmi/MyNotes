@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\MyNote.dir/objects.a
-C:\MinGW64\mingw32\bin\ar.exe cr CMakeFiles\MyNote.dir/objects.a @CMakeFiles\MyNote.dir\objects1.rsp
-C:\MinGW64\mingw32\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\MyNote.dir/objects.a -Wl,--no-whole-archive -o MyNote.exe -Wl,--out-implib,libMyNote.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\MyNote.dir\linklibs.rsp
